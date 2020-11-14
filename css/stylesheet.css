@@ -1,0 +1,357 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #24292e;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.dropdown-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	content: "";
+	border-top-style: solid;
+	border-top-width: 4px;
+	border-right: 4px solid transparent;
+	border-bottom: 0 solid transparent;
+	border-left: 4px solid transparent;
+}
+
+.btn {
+	color: #24292e;
+	background-color: #fafbfc;
+	box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+		inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+	transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+	transition-property: color, background-color, border-color;
+	position: relative;
+	display: inline-block;
+	padding: 5px 16px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid #d1d5da;
+	border-radius: 6px;
+	appearance: none;
+}
+
+.btn .dropdown-caret {
+	margin-left: 4px;
+	opacity: 0.8;
+}
+
+.btn-primary {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	background-color: #2ea44f;
+	border-color: rgba(27, 31, 35, 0.15);
+	box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+		inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+}
+
+input {
+	font: inherit;
+}
+
+/* 
+------------------------------------------
+TOP HEADER
+------------------------------------------ */
+nav.top-header {
+	height: 62px;
+	background: #24292e;
+	padding: 0 32px;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div.header-logo {
+	margin-right: 16px;
+}
+
+.nav-items ul {
+	display: flex;
+}
+
+.nav-items ul li {
+	padding: 0 8px;
+	font-weight: 600;
+}
+
+input.header-search-input {
+	background-color: #24292e;
+	font-weight: 400;
+	padding: 4px 12px;
+	border-radius: 6px;
+	outline: none;
+	width: 240px;
+	border: 1px solid #444d56;
+	margin-right: 8px;
+}
+
+input.header-search-input::placeholder {
+	color: #d1d5da;
+	font-size: 14px;
+}
+
+/* 
+------------------------------------------
+MAIN ROW + COLUMNS
+------------------------------------------ */
+div.main-row {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+div.col-1 {
+	width: 25%;
+}
+
+div.col-2 {
+	width: 75%;
+}
+
+/* 
+------------------------------------------
+PROFILE NAVIGATION
+------------------------------------------ */
+nav.profile-nav {
+	margin-top: 24px;
+	border-bottom: 1px solid #eaecef;
+}
+
+nav.profile-nav ul {
+	display: flex;
+	justify-content: flex-start;
+}
+
+li.profile-nav-item {
+	display: flex;
+	align-items: center;
+	line-height: 30px;
+	padding: 8px 16px;
+}
+
+li.profile-nav-item span {
+	margin-left: 4px;
+	color: #24292e;
+	background-color: rgba(209, 213, 218, 0.5);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 18px;
+	border-radius: 2em;
+	min-width: 20px;
+	padding: 0px 6px;
+	border: 1px solid transparent;
+}
+.active {
+	font-weight: 600;
+	border-bottom: 2px solid rgb(249, 130, 108);
+}
+
+li.profile-nav-item p {
+	margin-left: 4px;
+}
+
+/* 
+------------------------------------------
+REPOSITORY FILTER
+------------------------------------------ */
+
+.repo-filter {
+	margin: 16px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.repo-filter > * {
+	margin: 0 8px;
+}
+
+.repo-filter input {
+	width: 80%;
+	height: 20px;
+	padding: 5px 12px;
+	border-radius: 6px;
+	outline: none;
+	border: 1px solid #d1d5da;
+}
+
+details > summary {
+	list-style: none;
+}
+details > summary::-webkit-details-marker {
+	display: none;
+}
+
+details summary i {
+	font-style: normal;
+	font-weight: 500;
+	opacity: 0.75;
+}
+
+.btn-primary p {
+	margin-left: 4px;
+}
+
+.SelectMenu-modal {
+	position: relative;
+	z-index: 99;
+	display: flex;
+	max-height: 66%;
+	margin: auto 0;
+	overflow: hidden;
+	pointer-events: auto;
+	flex-direction: column;
+	background-color: var(--color-bg-overlay);
+	border: 1px solid var(--color-select-menu-backdrop-border);
+	border-radius: 12px;
+	box-shadow: var(--color-select-menu-shadow);
+	animation: SelectMenu-modal-animation 0.12s cubic-bezier(0, 0.1, 0.1, 1)
+		backwards;
+}
