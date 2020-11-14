@@ -164,6 +164,7 @@ body {
 	position: relative;
 	display: inline-block;
 	padding: 5px 16px;
+	font: inherit;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 20px;
@@ -194,7 +195,14 @@ body {
 input {
 	font: inherit;
 }
+div.col-1 {
+	padding: 0 16px;
+}
 
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+}
 /* 
 ------------------------------------------
 TOP HEADER
@@ -242,9 +250,10 @@ input.header-search-input::placeholder {
 ------------------------------------------
 MAIN ROW + COLUMNS
 ------------------------------------------ */
-div.main-row {
+main.main-row {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
+	padding: 0 32px;
 }
 
 div.col-1 {
@@ -354,4 +363,76 @@ details summary i {
 	box-shadow: var(--color-select-menu-shadow);
 	animation: SelectMenu-modal-animation 0.12s cubic-bezier(0, 0.1, 0.1, 1)
 		backwards;
+}
+
+/* 
+------------------------------------------
+PROFILE DETAILS
+------------------------------------------ */
+h2.full-name {
+	font-weight: 600;
+	font-size: 26px;
+	line-height: 1.25;
+}
+
+span.username {
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 24px;
+	color: #586069;
+}
+
+img.profile-avatar {
+	border-radius: 50%;
+	max-width: 90%;
+	height: auto;
+	display: inline-block;
+	overflow: hidden;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.profile-details .bio {
+	margin: 16px 0;
+	font-size: 16px;
+}
+
+.profile-details button {
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+div.profile-stat {
+	display: flex;
+	align-items: center;
+}
+
+div.profile-stat span {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 4px;
+}
+
+div.profile-stat span:not(:last-of-type)::after {
+	content: "·";
+	position: relative;
+	left: 4px;
+}
+
+div.profile-stat span .octicon {
+	margin-right: 4px;
+}
+
+div.more-details {
+	margin: 16px 0;
+}
+div.more-details p {
+	display: flex;
+	align-items: center;
+	line-height: 2;
+}
+
+div.more-details p .octicon {
+	margin-right: 5px;
 }
