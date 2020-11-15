@@ -291,7 +291,7 @@ li.profile-nav-item {
 	padding: 8px 16px;
 }
 
-li.profile-nav-item > span {
+li.profile-nav-item span {
 	margin-left: 4px;
 	color: #24292e;
 	background-color: rgba(209, 213, 218, 0.5);
