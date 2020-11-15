@@ -192,6 +192,12 @@ body {
 		inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
 }
 
+.btn-small {
+	padding: 3px 12px;
+	font-size: 12px;
+	line-height: 20px;
+}
+
 input {
 	font: inherit;
 }
@@ -221,11 +227,11 @@ div.header-logo {
 	margin-right: 16px;
 }
 
-.nav-items ul {
+.nav-items > ul {
 	display: flex;
 }
 
-.nav-items ul li {
+.nav-items > ul > li {
 	padding: 0 8px;
 	font-weight: 600;
 }
@@ -273,7 +279,7 @@ nav.profile-nav {
 	border-bottom: 1px solid #eaecef;
 }
 
-nav.profile-nav ul {
+nav.profile-nav > ul {
 	display: flex;
 	justify-content: flex-start;
 }
@@ -285,7 +291,7 @@ li.profile-nav-item {
 	padding: 8px 16px;
 }
 
-li.profile-nav-item span {
+li.profile-nav-item > span {
 	margin-left: 4px;
 	color: #24292e;
 	background-color: rgba(209, 213, 218, 0.5);
@@ -302,7 +308,7 @@ li.profile-nav-item span {
 	border-bottom: 2px solid rgb(249, 130, 108);
 }
 
-li.profile-nav-item p {
+li.profile-nav-item > p {
 	margin-left: 4px;
 }
 
@@ -322,7 +328,7 @@ REPOSITORY FILTER
 	margin: 0 8px;
 }
 
-.repo-filter input {
+.repo-filter > input {
 	width: 80%;
 	height: 20px;
 	padding: 5px 12px;
@@ -338,31 +344,14 @@ details > summary::-webkit-details-marker {
 	display: none;
 }
 
-details summary i {
+details > summary > i {
 	font-style: normal;
 	font-weight: 500;
 	opacity: 0.75;
 }
 
-.btn-primary p {
+.btn-primary > p {
 	margin-left: 4px;
-}
-
-.SelectMenu-modal {
-	position: relative;
-	z-index: 99;
-	display: flex;
-	max-height: 66%;
-	margin: auto 0;
-	overflow: hidden;
-	pointer-events: auto;
-	flex-direction: column;
-	background-color: var(--color-bg-overlay);
-	border: 1px solid var(--color-select-menu-backdrop-border);
-	border-radius: 12px;
-	box-shadow: var(--color-select-menu-shadow);
-	animation: SelectMenu-modal-animation 0.12s cubic-bezier(0, 0.1, 0.1, 1)
-		backwards;
 }
 
 /* 
@@ -391,14 +380,15 @@ img.profile-avatar {
 	overflow: hidden;
 	line-height: 1;
 	vertical-align: middle;
+	margin: 16px 0;
 }
 
-.profile-details .bio {
+.profile-details > .bio {
 	margin: 16px 0;
 	font-size: 16px;
 }
 
-.profile-details button {
+.profile-details > button {
 	width: 100%;
 	margin-bottom: 16px;
 }
@@ -408,31 +398,115 @@ div.profile-stat {
 	align-items: center;
 }
 
-div.profile-stat span {
+div.profile-stat > span {
 	display: inline-flex;
 	align-items: center;
 	margin: 0 4px;
 }
 
-div.profile-stat span:not(:last-of-type)::after {
+div.profile-stat > span:not(:last-of-type)::after {
 	content: "·";
 	position: relative;
 	left: 4px;
 }
 
-div.profile-stat span .octicon {
+div.profile-stat > span > .octicon {
 	margin-right: 4px;
 }
 
 div.more-details {
 	margin: 16px 0;
 }
-div.more-details p {
+div.more-details > p {
 	display: flex;
 	align-items: center;
 	line-height: 2;
 }
 
-div.more-details p .octicon {
+div.more-details > p > .octicon {
 	margin-right: 5px;
+}
+
+/* 
+------------------------------------------
+REPOSITORY CARD
+------------------------------------------ */
+
+div.repo-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px 0;
+	border-bottom: 1px solid #e1e4e8;
+}
+
+div.repo-card:first-of-type {
+	border-top: 1px solid #e1e4e8;
+	background-color: yellow;
+}
+
+div.repo-card > .repo-details {
+	width: 83.33333%;
+}
+
+div.repo-card > .repo-details > h3.repo-name {
+	color: #0366d6;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+div.repo-card > .repo-details > h3.repo-name:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+div.repo-card > .repo-details > .repo-fork {
+	font-size: 12px;
+	display: inline-block;
+	margin-bottom: 4px;
+	color: #586069;
+}
+
+div.repo-card > .repo-details > .repo-description {
+	width: 75%;
+	color: #586069;
+	padding-right: 24px;
+	margin-bottom: 8px;
+}
+
+div.repo-card > .repo-details > .repo-additional-info {
+	font-size: 12px;
+	display: inline-block;
+	margin-top: 8px;
+	color: #586069;
+}
+
+div.repo-card > .repo-details > .repo-additional-info .repo-language-color {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+}
+
+div.repo-card > .repo-details > .repo-additional-info > span {
+	margin-right: 16px;
+}
+
+div.repo-card > button.btn-sm {
+	display: flex;
+	align-items: center;
+	padding: 3px 12px;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+div.repo-card > button.btn-sm > svg {
+	margin-right: 4px;
+}
+
+div.repo-card > .repo-details > .repo-additional-info > span > svg {
+	vertical-align: text-bottom;
+	display: inline-block;
 }
