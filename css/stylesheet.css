@@ -442,7 +442,6 @@ div.repo-card {
 
 div.repo-card:first-of-type {
 	border-top: 1px solid #e1e4e8;
-	background-color: yellow;
 }
 
 div.repo-card > .repo-details {
@@ -488,6 +487,7 @@ div.repo-card > .repo-details > .repo-additional-info .repo-language-color {
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
+	margin-right: 4px;
 }
 
 div.repo-card > .repo-details > .repo-additional-info > span {
