@@ -1,68 +1,49 @@
-const query = `
-{
-    viewer {
-      repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}, affiliations: OWNER) {
-        edges {
-          node {
-            id
-            description
-            url
-            pushedAt
-            stargazerCount
-            licenseInfo {
-              name
-            }
-            mirrorUrl
-            languages(orderBy: {field: SIZE, direction: DESC}, first: 1) {
-              nodes {
-                color
-                name
-              }
-            }
-            name
-            isFork
-          }
-        }
-        totalCount
-      }
-      avatarUrl
-      bio
-      company
-      name
-      login
-      followers {
-        totalCount
-      }
-      following {
-        totalCount
-      }
-      starredRepositories {
-        totalCount
-      }
-      websiteUrl
-      location
-      email
-    }
-  }
-`;
+const githubUsername = "john-afolabi";
+const githubToken = "736703e507e3f775c1d46e2fdd4c60ccb5bedc79";
 
-// axios({
-// 	url: "https://api.github.com/graphql",
-// 	method: "post",
-// 	headers: {
-// 		Authorization: `bearer 7b092251e275873b0d76108e4827af2e1c46bff8`,
-// 	},
-// 	data: {
-// 		query,
-// 	},
-// })
-// 	.then((res) => {
-// 		profileData = res.data.data.viewer;
-// 		return profileData;
-// 	})
-// 	.catch((err) => {
-// 		console.log(err);
-// 	});
+const query = ` {
+	user(login: "${githubUsername}") {
+		avatarUrl
+		bio
+		email
+		followers {
+		  totalCount
+		}
+		following {
+		  totalCount
+		}
+		location
+		websiteUrl
+		repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}, affiliations: OWNER) {
+		  edges {
+			node {
+			  id
+			  description
+			  name
+			  parent {
+				nameWithOwner
+				forkCount
+			  }
+			  licenseInfo {
+				name
+			  }
+			  languages(orderBy: {field: SIZE, direction: DESC}, first: 1) {
+				edges {
+				  node {
+					color
+					name
+				  }
+				}
+			  }
+			}
+		  }
+		}
+		starredRepositories {
+		  totalCount
+		}
+  }
+}
+`;
 
 async function getProfileData() {
 	try {
@@ -70,14 +51,14 @@ async function getProfileData() {
 			url: "https://api.github.com/graphql",
 			method: "post",
 			headers: {
-				Authorization: `bearer 7b092251e275873b0d76108e4827af2e1c46bff8`,
+				Authorization: `bearer ${githubToken}`,
 			},
 			data: {
 				query,
 			},
 		});
-		console.log(res.data.data.viewer);
-		return res.data.data.viewer;
+		console.log(res.data.data.user);
+		return res.data.data.user;
 	} catch (error) {
 		console.log(error);
 	}
@@ -159,7 +140,10 @@ getProfileData().then((profileData) => {
 		repoName.textContent = repo.name;
 
 		const repoFork = document.createElement("span");
-		repo.isFork ? repoFork.classList.add("repo-fork") : null;
+		repo.parent ? repoFork.classList.add("repo-fork") : null;
+		repo.parent
+			? (repoFork.textContent = `Forked from ${repo.parent.nameWithOwner}`)
+			: null;
 
 		const repoDescription = document.createElement("p");
 		repoDescription.classList.add("repo-description");
@@ -183,16 +167,16 @@ getProfileData().then((profileData) => {
 		repoAdditionalInfo.children[0].children[0].classList.add(
 			"repo-language-color"
 		);
-		repo.languages.nodes.length
-			? (repoAdditionalInfo.children[0].children[0].style.backgroundColor = `${repo.languages.nodes[0].color}`)
+		repo.languages.edges.length
+			? (repoAdditionalInfo.children[0].children[0].style.backgroundColor = `${repo.languages.edges[0].node.color}`)
 			: null;
-		repo.languages.nodes.length
+		repo.languages.edges.length
 			? (repoAdditionalInfo.children[0].children[1].textContent =
-					repo.languages.nodes[0].name)
+					repo.languages.edges[0].node.name)
 			: null;
 		repoAdditionalInfo.children[0].children[1].classList.add("language");
 
-		repo.stargazerCount
+		repo.forkCount || repo.parent
 			? (repoAdditionalInfo.children[1].innerHTML = `
 			<svg
 				fill="#586069"
@@ -208,7 +192,7 @@ getProfileData().then((profileData) => {
 					fill-rule="evenodd"
 					d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"
 				></path>
-            </svg>`)
+            </svg> ${repo.forkCount || repo.parent.forkCount}`)
 			: null;
 
 		repo.licenseInfo
