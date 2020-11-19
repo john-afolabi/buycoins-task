@@ -444,6 +444,10 @@ div.repo-card:first-of-type {
 	border-top: 1px solid #e1e4e8;
 }
 
+/* div.repo-card:last-of-type {
+	border-bottom: 1px solid #e1e4e8;
+} */
+
 div.repo-card > .repo-details {
 	width: 83.33333%;
 }
@@ -509,4 +513,31 @@ div.repo-card > button.btn-sm > svg {
 div.repo-card > .repo-details > .repo-additional-info > span > svg {
 	vertical-align: text-bottom;
 	display: inline-block;
+}
+
+.paginate-container {
+	margin-top: 16px;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.btn-group {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+div.btn-group button:nth-of-type(1) {
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	color: rgba(3, 102, 214, 0.5);
+	background-color: #fafbfc;
+	border-color: rgba(27, 31, 35, 0.15);
+	box-shadow: none;
+	cursor: default;
+}
+
+div.btn-group button:nth-of-type(2) {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	color: #0366d6;
 }
