@@ -35,8 +35,10 @@ const query = ` {
 				  }
 				}
 			  }
+			  pushedAt
 			}
 		  }
+		  totalCount
 		}
 		starredRepositories {
 		  totalCount
@@ -152,10 +154,19 @@ getProfileData().then((profileData) => {
 		const repoAdditionalInfo = document.createElement("div");
 		repoAdditionalInfo.classList.add("repo-additional-info");
 
-		repoAdditionalInfo.appendChild(document.createElement("span"));
-		repoAdditionalInfo.appendChild(document.createElement("span"));
-		repoAdditionalInfo.appendChild(document.createElement("span"));
-		repoAdditionalInfo.appendChild(document.createElement("span"));
+		// repoAdditionalInfo.appendChild(document.createElement("span"));
+		// repoAdditionalInfo.appendChild(document.createElement("span"));
+		// repoAdditionalInfo.appendChild(document.createElement("span"));
+		// repoAdditionalInfo.appendChild(document.createElement("span"));
+
+		const additionalInfos =
+			!!repo.languages.edges.length +
+			!!repo.parent +
+			!!repo.licenseInfo +
+			!!repo.pushedAt;
+		for (let index = 0; index < additionalInfos + 1; index++) {
+			repoAdditionalInfo.appendChild(document.createElement("span"));
+		}
 
 		repoAdditionalInfo.children[0].appendChild(
 			document.createElement("span")
@@ -214,14 +225,19 @@ getProfileData().then((profileData) => {
     `)
 			: null;
 
-		const oneDay = 24 * 60 * 60 * 1000;
-		const diffDays = Math.round(
-			Math.abs((new Date() - repo.pushedAt) / oneDay)
-		);
+		const a = moment(repo.pushedAt);
+		const b = moment();
 
-		repoAdditionalInfo.children[3].textContent = `Updated ${diffDays} days ago`;
+		const dayDiff = b.diff(a, "days");
 
-		// repo.languages + repo.licenseInfo + repo.stargazerCount + repo.pushedAt
+		const repoCardDate =
+			dayDiff < 30
+				? `Updated ${dayDiff} days ago`
+				: `Updated on ${a.format("MMM D")}`;
+
+		repoAdditionalInfo.children[
+			repoAdditionalInfo.children.length - 1
+		].textContent = repoCardDate;
 
 		repoCardDetails.appendChild(repoName);
 		repoCardDetails.appendChild(repoFork);
