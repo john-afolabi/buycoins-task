@@ -77,6 +77,12 @@ getProfileData().then((profileData) => {
 	const navAvatar = document.querySelector(".nav-profile-img");
 	navAvatar.src = profileData.avatarUrl;
 
+	const mobileNavAvatar = document.querySelector(".mobile-nav-avatar");
+	mobileNavAvatar.src = profileData.avatarUrl;
+
+	const mobileNavUsername = document.querySelectorAll(".mobile-nav-item")[8];
+	mobileNavUsername.append(profileData.login);
+
 	const fullname = document.querySelector(".full-name");
 	fullname.textContent = profileData.name;
 
@@ -272,3 +278,15 @@ function handleTabletChange(e) {
 
 mediaQuery.addListener(handleTabletChange);
 handleTabletChange(mediaQuery);
+
+const mobileNav = document.querySelector(".mobile-nav");
+
+const openNav = () => {
+	if (mobileNav.classList.contains("open-mobile-nav")) {
+		mobileNav.classList.remove("open-mobile-nav");
+	} else {
+		mobileNav.classList.add("open-mobile-nav");
+	}
+};
+
+document.querySelector(".hamburger").onclick = openNav;
