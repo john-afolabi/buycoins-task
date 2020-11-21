@@ -344,8 +344,16 @@ REPOSITORY FILTER
 	justify-content: space-between;
 }
 
-.repo-filter > * {
-	margin: 0 8px;
+.repo-filter > div {
+	display: flex;
+}
+
+.repo-filter > div > details:first-of-type {
+	margin-right: 8px;
+}
+
+.repo-filter > div > button {
+	margin-left: 16px;
 }
 
 .repo-filter > input {
@@ -355,6 +363,7 @@ REPOSITORY FILTER
 	border-radius: 6px;
 	outline: none;
 	border: 1px solid #d1d5da;
+	margin-right: 16px;
 }
 
 details > summary {
@@ -565,7 +574,7 @@ FOOTER
 
 footer {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	font-size: 12px;
 	color: #586069;
 	align-items: center;
@@ -590,4 +599,61 @@ footer > a {
 
 footer > a:hover {
 	text-decoration: underline;
+}
+
+/*
+----------------------------------------
+MEDIA QUERIES
+---------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+	main.main-row {
+		flex-direction: column;
+	}
+
+	div.col-1 {
+		width: 100%;
+		padding: unset;
+	}
+
+	div.col-2 {
+		width: 100%;
+	}
+
+	img.profile-avatar {
+		display: inline-block;
+		max-width: 120px;
+		height: auto;
+		margin-right: 16px;
+	}
+
+	div.profile-name {
+		display: inline-block;
+	}
+
+	.repo-filter {
+		display: unset;
+	}
+
+	.repo-filter > div {
+		margin-bottom: 16px;
+	}
+
+	.repo-filter > div > button {
+		margin-left: auto;
+	}
+
+	input.repo-search {
+		width: 95%;
+		margin: 16px auto;
+	}
+
+	footer {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	footer > * {
+		margin-right: 8px;
+	}
 }

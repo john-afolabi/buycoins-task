@@ -13,6 +13,8 @@ const query = ` {
 		  totalCount
 		}
 		location
+		login
+		name
 		websiteUrl
 		repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}, affiliations: OWNER) {
 		  edges {

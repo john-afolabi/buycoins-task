@@ -94,10 +94,11 @@
 		<main class="main-row container">
 			<div class="col-1">
 				<img class="profile-avatar" width="260" height="260" />
-
-				<div class="profile-details">
+				<div class="profile-name">
 					<h2 class="full-name"></h2>
 					<span class="username"></span>
+				</div>
+				<div class="profile-details">
 					<p class="bio"></p>
 					<button class="btn">Edit profile</button>
 
@@ -266,190 +267,196 @@
 				</nav>
 
 				<div class="repo-filter">
-					<input type="text" placeholder="Find a repository" />
+					<input
+						type="text"
+						placeholder="Find a repository"
+						class="repo-search"
+					/>
 
-					<details>
-						<summary class="btn">
-							<i>Type:</i>
-							<span data-menu-button=""> All </span>
-							<span class="dropdown-caret"></span>
-						</summary>
-						<details-menu role="menu">
-							<div class="SelectMenu-modal">
-								<header>
-									<span>Select type</span>
-								</header>
-								<div>
-									<label>
-										<svg
-											class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check"
-											viewBox="0 0 16 16"
-											version="1.1"
-											width="16"
-											height="16"
-											aria-hidden="true"
-										>
-											<path
-												fill-rule="evenodd"
-												d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
-											></path>
-										</svg>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>All</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Public</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Private</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Sources</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Forks</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Archived</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Mirrors</span
-										>
-									</label>
+					<div>
+						<details>
+							<summary class="btn">
+								<i>Type:</i>
+								<span data-menu-button=""> All </span>
+								<span class="dropdown-caret"></span>
+							</summary>
+							<details-menu role="menu">
+								<div class="SelectMenu-modal">
+									<header>
+										<span>Select type</span>
+									</header>
+									<div>
+										<label>
+											<svg
+												class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check"
+												viewBox="0 0 16 16"
+												version="1.1"
+												width="16"
+												height="16"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+												></path>
+											</svg>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>All</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Public</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Private</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Sources</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Forks</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Archived</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Mirrors</span
+											>
+										</label>
+									</div>
 								</div>
-							</div>
-						</details-menu>
-					</details>
+							</details-menu>
+						</details>
 
-					<details>
-						<summary class="btn">
-							<i>Language:</i>
-							<span data-menu-button=""> All </span>
-							<span class="dropdown-caret"></span>
-						</summary>
-						<details-menu role="menu">
-							<div>
-								<header>
-									<span>Select language</span>
-								</header>
+						<details>
+							<summary class="btn">
+								<i>Language:</i>
+								<span data-menu-button=""> All </span>
+								<span class="dropdown-caret"></span>
+							</summary>
+							<details-menu role="menu">
 								<div>
-									<label>
-										<svg
-											class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check"
-											viewBox="0 0 16 16"
-											version="1.1"
-											width="16"
-											height="16"
-											aria-hidden="true"
-										>
-											<path
-												fill-rule="evenodd"
-												d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
-											></path>
-										</svg>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>All</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>JavaScript</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>SCSS</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>TypeScript</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>HTML</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Python</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>CSS</span
-										>
-									</label>
-									<label>
-										<span
-											class="text-normal"
-											data-menu-button-text=""
-											>Jupyter Notebook</span
-										>
-									</label>
+									<header>
+										<span>Select language</span>
+									</header>
+									<div>
+										<label>
+											<svg
+												class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check"
+												viewBox="0 0 16 16"
+												version="1.1"
+												width="16"
+												height="16"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+												></path>
+											</svg>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>All</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>JavaScript</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>SCSS</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>TypeScript</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>HTML</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Python</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>CSS</span
+											>
+										</label>
+										<label>
+											<span
+												class="text-normal"
+												data-menu-button-text=""
+												>Jupyter Notebook</span
+											>
+										</label>
+									</div>
 								</div>
-							</div>
-						</details-menu>
-					</details>
+							</details-menu>
+						</details>
 
-					<button class="btn btn-primary">
-						<svg
-							fill="#ffffffcc"
-							class="octicon octicon-repo"
-							height="16"
-							viewBox="0 0 16 16"
-							version="1.1"
-							width="16"
-							aria-hidden="true"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
-							></path>
-						</svg>
-						<p>New</p>
-					</button>
+						<button class="btn btn-primary">
+							<svg
+								fill="#ffffffcc"
+								class="octicon octicon-repo"
+								height="16"
+								viewBox="0 0 16 16"
+								version="1.1"
+								width="16"
+								aria-hidden="true"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
+								></path>
+							</svg>
+							<p>New</p>
+						</button>
+					</div>
 				</div>
 
 				<div class="repo-cards-container"></div>
