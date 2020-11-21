@@ -252,6 +252,25 @@ input.header-search-input::placeholder {
 	font-size: 14px;
 }
 
+.nav-profile-img {
+	border-radius: 50%;
+}
+
+.nav-icons {
+	display: flex;
+	align-items: center;
+}
+
+.nav-icons > * {
+	margin-right: 16px;
+	display: flex;
+	align-items: center;
+}
+
+.nav-icons > * > span {
+	margin-left: 4px;
+}
+
 /* 
 ------------------------------------------
 MAIN ROW + COLUMNS

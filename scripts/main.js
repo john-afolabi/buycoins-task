@@ -72,6 +72,9 @@ getProfileData().then((profileData) => {
 	const profileAvatar = document.querySelector(".profile-avatar");
 	profileAvatar.src = profileData.avatarUrl;
 
+	const navAvatar = document.querySelector(".nav-profile-img");
+	navAvatar.src = profileData.avatarUrl;
+
 	const fullname = document.querySelector(".full-name");
 	fullname.textContent = profileData.name;
 
@@ -252,3 +255,18 @@ getProfileData().then((profileData) => {
 		createRepoCard(repo);
 	});
 });
+
+const mediaQuery = window.matchMedia("(max-width: 1012px)");
+
+function handleTabletChange(e) {
+	const pullRequests = document.querySelector(".nav-items").children[0]
+		.children[0];
+	if (e.matches) {
+		pullRequests.textContent = "Pulls";
+	} else {
+		pullRequests.textContent = "Pull requests";
+	}
+}
+
+mediaQuery.addListener(handleTabletChange);
+handleTabletChange(mediaQuery);
