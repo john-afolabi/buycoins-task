@@ -614,7 +614,11 @@ footer > a:hover {
 MEDIA QUERIES
 ---------------------------------------- */
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
+	.container {
+		padding: 0 16px !important;
+	}
+
 	div.nav-items,
 	.header-search-input,
 	.nav-icons > div:not(:first-of-type) {
@@ -746,5 +750,11 @@ MEDIA QUERIES
 
 	footer > * {
 		margin-right: 8px;
+	}
+}
+
+@media (max-width: 576px) {
+	.profile-nav-item > svg {
+		display: none;
 	}
 }

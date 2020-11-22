@@ -1,5 +1,5 @@
 const githubUsername = "john-afolabi";
-const githubToken = "736703e507e3f775c1d46e2fdd4c60ccb5bedc79";
+const githubToken = "// Place your GitHib token here for API Authentication";
 
 const query = ` {
 	user(login: "${githubUsername}") {
@@ -265,7 +265,6 @@ getProfileData().then((profileData) => {
 });
 
 const mediaQuery = window.matchMedia("(max-width: 1012px)");
-
 function handleTabletChange(e) {
 	const pullRequests = document.querySelector(".nav-items").children[0]
 		.children[0];
@@ -275,12 +274,10 @@ function handleTabletChange(e) {
 		pullRequests.textContent = "Pull requests";
 	}
 }
-
 mediaQuery.addListener(handleTabletChange);
 handleTabletChange(mediaQuery);
 
 const mobileNav = document.querySelector(".mobile-nav");
-
 const openNav = () => {
 	if (mobileNav.classList.contains("open-mobile-nav")) {
 		mobileNav.classList.remove("open-mobile-nav");
@@ -290,3 +287,4 @@ const openNav = () => {
 };
 
 document.querySelector(".hamburger").onclick = openNav;
+z
